@@ -15,7 +15,7 @@ public class TrainingController {
         model.addAttribute("client", new Client());
         return "index";
     }
-
+// POST
     @PostMapping("/client")
     public String client(@ModelAttribute Client client, Model model) {
 
