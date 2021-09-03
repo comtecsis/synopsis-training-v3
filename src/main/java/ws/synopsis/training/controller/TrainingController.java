@@ -1,16 +1,13 @@
 package ws.synopsis.training.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ws.synopsis.training.model.Client;
+import org.springframework.web.bind.annotation.*;
+import ws.synopsis.training.exception.TrainingException;
+import ws.synopsis.training.beans.model.Client;
 import ws.synopsis.training.service.ClientService;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -20,16 +17,27 @@ public class TrainingController {
     private ClientService service;
 
     @GetMapping({"/client", "", "/"})
-    public ResponseEntity<?> index(){
+    public ResponseEntity<?> clientGet(){
         List<Client> clients = service.list();
         return ResponseEntity.ok().body(clients);
     }
 
-    @PostMapping
-    public String index(Client client, Model model){
-        model.addAttribute("name", client.getName());
-        model.addAttribute("email", client.getEmail());
-        return "client/index";
+    @PostMapping({"/client"})
+    public ResponseEntity<?> clientPost(@RequestBody Client client) throws TrainingException {
+        service.add(client);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping({"/client"})
+    public ResponseEntity<?> clientPut(@RequestBody Client client) throws TrainingException {
+        service.update(client);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping({"/client/{id}"})
+    public ResponseEntity<?> clientDelete(@PathVariable("id") Integer id) throws TrainingException {
+        service.delete(id);
+        return ResponseEntity.ok().build();
     }
 
 }
