@@ -14,6 +14,7 @@ import ws.synopsis.training.service.BookService;
 import ws.synopsis.training.service.PersonService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.net.UnknownHostException;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<?> clientPost(@RequestBody Person client, HttpServletRequest request) throws TrainingException {
+    public ResponseEntity<?> clientPost(@Valid @RequestBody Person client, HttpServletRequest request) throws TrainingException {
         service.add(client);
         return ResponseEntity.ok().build();
     }
