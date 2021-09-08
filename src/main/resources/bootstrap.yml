@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: training
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://194.163.180.156:8888
+
+server:
+  port: ${PORT:0}
+
+eureka:
+  instance:
+    instance-id:  ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://194.163.180.156:8761/eureka
