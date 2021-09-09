@@ -12,4 +12,8 @@ public class TrainingResponse <T> {
     private TrainingStatus status;
     private T data;
 
+    public TrainingResponse(TrainingStatus status){
+        this.status = status;
+    }
+
 }

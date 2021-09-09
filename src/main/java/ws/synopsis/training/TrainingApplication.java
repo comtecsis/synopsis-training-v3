@@ -5,11 +5,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
 @EnableEurekaClient
 @SpringBootApplication
+@ComponentScan({"ws.synopsis.security", "ws.synopsis.training"})
 public class TrainingApplication {
 
 	public static void main(String[] args) {

@@ -3,21 +3,16 @@ package ws.synopsis.training.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ws.synopsis.training.beans.base.TrainingResponse;
 import ws.synopsis.training.beans.model.Book;
-import ws.synopsis.training.beans.model.Client;
-import ws.synopsis.training.enumeraciones.TrainingStatusEnum;
+import ws.synopsis.training.enumerations.TrainingStatusEnum;
 import ws.synopsis.training.exception.TrainingException;
 import ws.synopsis.training.service.BookService;
-import ws.synopsis.training.service.ClientService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 @RestController

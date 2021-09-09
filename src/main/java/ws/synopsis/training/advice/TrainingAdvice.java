@@ -4,12 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import ws.synopsis.training.beans.base.TrainingResponse;
-import ws.synopsis.training.enumeraciones.TrainingStatusEnum;
+import ws.synopsis.training.enumerations.TrainingStatusEnum;
 
 import java.util.List;
 

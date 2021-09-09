@@ -1,4 +1,4 @@
-package ws.synopsis.training.enumeraciones;
+package ws.synopsis.training.enumerations;
 
 import lombok.Getter;
 import ws.synopsis.training.beans.base.TrainingStatus;
