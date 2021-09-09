@@ -6,17 +6,48 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_HOST}}/v1/login",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Client-List",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/client",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/client",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "8080",
 					"path": [
 						"client"
 					]
@@ -28,14 +59,18 @@
 			"name": "Book-List",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:9081/book",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/book",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"book"
 					]
@@ -47,14 +82,18 @@
 			"name": "Person-List",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:9081/person",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/person",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"person"
 					]
@@ -66,7 +105,13 @@
 			"name": "Client-Add",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n        \"id\": 4,\r\n        \"name\": \"Elvis Perez4\",\r\n        \"email\": \"elvisperez4.tec@gmail.com\"\r\n    }",
@@ -77,12 +122,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/client",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/client",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "8080",
 					"path": [
 						"client"
 					]
@@ -94,10 +137,16 @@
 			"name": "Person-Add",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Elvis\"\r\n}",
+					"raw": "{\r\n    \"name\": null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,12 +154,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/person",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/person",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"person"
 					]
@@ -122,7 +169,13 @@
 			"name": "Book-Add",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"Bitacora 2\"\r\n}",
@@ -133,12 +186,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/book",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/book",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"book"
 					]
@@ -150,7 +201,13 @@
 			"name": "Library-Unassing",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"personId\": 1,\r\n    \"bookId\": 1\r\n}",
@@ -161,12 +218,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/library/unassign",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/library/unassign",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"library",
 						"unassign"
@@ -179,7 +234,13 @@
 			"name": "LIbrary-Assign",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"personId\": 1,\r\n    \"bookId\": 1\r\n}",
@@ -190,12 +251,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/library/assign",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/library/assign",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"library",
 						"assign"
@@ -205,10 +264,48 @@
 			"response": []
 		},
 		{
+			"name": "Calculation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"radius\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_HOST}}/calculation",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"calculation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Client-Edit",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n        \"id\": 5,\r\n        \"name\": \"Elvis Perez5_\",\r\n        \"email\": \"elvisperez5_.tec@gmail.com\"\r\n    }",
@@ -219,12 +316,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/client",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/client",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "8080",
 					"path": [
 						"client"
 					]
@@ -236,7 +331,13 @@
 			"name": "Book-Edit",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Bitacora 3\"\r\n}",
@@ -247,12 +348,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/book",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/book",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"book"
 					]
@@ -264,7 +363,13 @@
 			"name": "Person-Edit",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Bitacora 3\"\r\n}",
@@ -275,12 +380,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9081/person",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/person",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"person"
 					]
@@ -292,14 +395,18 @@
 			"name": "Client-Delete",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/client/4",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/client/4",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "8080",
 					"path": [
 						"client",
 						"4"
@@ -312,14 +419,18 @@
 			"name": "Book-Delete",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:9081/book/1",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/book/1",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"book",
 						"1"
@@ -332,14 +443,18 @@
 			"name": "Person-Delete",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{AUTH_VALUE}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:9081/person/1",
-					"protocol": "http",
+					"raw": "{{BASE_HOST}}/person/1",
 					"host": [
-						"localhost"
+						"{{BASE_HOST}}"
 					],
-					"port": "9081",
 					"path": [
 						"person",
 						"1"
@@ -347,6 +462,36 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_HOST",
+			"value": "http://localhost:9081"
+		},
+		{
+			"key": "AUTH_VALUE",
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJyb2xlc1wiOlt7XCJhdXRob3JpdHlcIjpcIkFETUlOXCJ9XSxcIm5hbWVcIjpcIkVsdmlzIFBlcmV6XCJ9IiwiZXhwIjoxNjMxNzYxNzc5fQ.XakdxyFmVTNcnXMzji3Mqr3d90_EuugbvXi9GTjRfTdObJrfQzMGuqP9HmnsOI0mWWoZMnjl8NdZvay9EuCeig"
 		}
 	]
 }
